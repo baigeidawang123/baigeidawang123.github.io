@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
-    <title>应该不是给阚的</title>
+    <title>应该不是给阚伊伊看的</title>
     <meta name="Generator" content="EditPlus" />
     <meta name="Author" content="" />
     <meta name="Keywords" content="" />
@@ -24,6 +24,7 @@
 
   <body>
     <canvas id="pinkboard"></canvas>
+    <html id="hhttp"></html>
     <script>
       /*
        * Settings
@@ -304,7 +305,39 @@
           render();
         }, 10);
       })(document.getElementById("pinkboard"));
-        document.getElementById("hhttp").innerHTML='新年'
+      function timer() {
+        var start = new Date(2022,12,23); // 2015.7.2
+        console.log(start,new Date());
+        var t = new Date()- start ;
+        var h = ~~((t / 1000 / 60 / 60) % 24);
+        if (h < 10) {
+          h = "0" + h;
+        }
+        var m = ~~((t / 1000 / 60) % 60);
+        if (m < 10) {
+          m = "0" + m;
+        }
+
+        var s = ~~((t / 1000) % 60);
+        if (s < 10) {
+          s = "0" + s;
+        }
+        document.getElementById("d").innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+        document.getElementById("h").innerHTML = h;
+        document.getElementById("m").innerHTML = m;
+        document.getElementById("s").innerHTML = s;
+      }
+
+      setTimeout(() => {
+        document.getElementById(
+          "hhttp"
+        ).innerHTML = ` <h2>李文豪和阚伊伊已经在一起</h2>
+    <div class="timer">
+        <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
+    </div>  `;
+        timer();
+        setInterval(timer, 1000);
+      }, 3000);
     </script>
   </body>
 </html>
